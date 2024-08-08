@@ -1,48 +1,32 @@
 import type { MetaFunction } from "@remix-run/node";
+import { ReactLenis, useLenis } from 'lenis/react'
+
+import Layout from "./home/layout";
+import Layout1 from "./home/layout_1";
+import HomeWrapper from "~/components/nav/HomeWrapper";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "메메지션" },
+    { name: "확실한 성공의 길을 제시합니다.", content: "메메지션과 함께 하세요!" },
   ];
 };
 
 export default function Index() {
+
+  const lenis = useLenis(({ scroll }) => {
+    // console.log(scroll)
+    // called every scroll
+  })
+  console.log(lenis)
+
   return (
-    <div className="font-sans p-4">
-      <h1 className="text-3xl">Welcome to Remix</h1>
-      <ul className="list-disc mt-4 pl-6 space-y-2">
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/start/quickstart"
-            rel="noreferrer"
-          >
-            5m Quick Start
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/start/tutorial"
-            rel="noreferrer"
-          >
-            30m Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/docs"
-            rel="noreferrer"
-          >
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+    <>
+    <ReactLenis root>
+      <HomeWrapper>
+        <Layout1/>
+      </HomeWrapper>
+    </ReactLenis>
+    </>
   );
 }

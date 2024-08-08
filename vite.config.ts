@@ -13,4 +13,17 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  esbuild: {
+    // pure: process.env.NODE_ENV === 'production' ? ['console.log'] : [],
+    drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
+  },
+  // server: {
+  //   port: 3000
+  // },
 });
+
+declare global {
+  interface Window {
+      ENV: any;
+  }
+}
