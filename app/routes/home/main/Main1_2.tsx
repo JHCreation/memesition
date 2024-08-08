@@ -79,7 +79,7 @@ export default function Main1_2 () {
               <div ref={el=> topRef.current[key]= el as HTMLDivElement } className=""></div>
               <animated.div 
                 // ref={el=> sectRef.current[key]= el as HTMLDivElement}
-                className={`h-[90dvh] sticky top-nav w-full bg-stone-50 overflow-hidden`}>
+                className={`h-[90lvh] sticky top-nav w-full bg-stone-50 overflow-hidden`}>
 
                 <animated.div 
                   className={`h-full w-full border  z-0`}
