@@ -22,6 +22,7 @@ export default function Index() {
 
   return (
     <>
+    <div className="fixed"></div>
     <ReactLenis root>
       <HomeWrapper>
         <Layout1/>
