@@ -45,7 +45,7 @@ export default function Main1_6 () {
     }
   }) 
   return (
-    <section ref={container_1_Ref} className="h-[1000dvh] bg-gray-600">
+    <section ref={container_1_Ref} className="h-[1000lvh] bg-gray-600">
       <div className="sticky top-nav w-full ">
         <div className="h-dvh overflow-hidden">
           {

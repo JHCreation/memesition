@@ -94,7 +94,7 @@ export default function Main1_5 () {
   return (
     <div 
       ref={containerRef} 
-      className="bg-white h-[300dvh] flex w-full max-w-screen-1 m-auto"
+      className="bg-white h-[300lvh] flex w-full max-w-screen-1 m-auto"
       
     >
       <section className=''>
