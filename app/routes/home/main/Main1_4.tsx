@@ -59,10 +59,10 @@ export default function Main1_4 () {
   
   return (
     <div className="bg-gray-600">
-      <section ref={containerRef} className='h-[800svh]'>
+      <section ref={containerRef} className='h-[800lvh]'>
         <div ref={sectRef} className="sticky h-lvh top-0 flex items-center justify-center overflow-hidden">
           <div className="h-svh w-full flex flex-col justify-between pt-nav ">
-            <div className="font-[Pretendard] font-black leading-[1] text-[60px] uppercase">
+            <div className="font-[Pretendard] font-black leading-[1] text-[20px] md:text-[60px] uppercase">
               <h1 className="">so we built</h1>
               <h1 className="">web scrolling</h1>
             </div>
@@ -89,7 +89,7 @@ export default function Main1_4 () {
             </animated.div>
             <animated.div
               style={spring}
-              className="font-[Pretendard] font-black leading-[1] text-[60px] uppercase">
+              className="font-[Pretendard] font-black leading-[1] text-[30px] md:text-[60px] uppercase">
               <h1 className="">so we built</h1>
               <h1 className="">web scrolling</h1>
             </animated.div>
