@@ -53,10 +53,10 @@ export default function Main1_3 () {
     <div>
       <section ref={containerRef} className=''
         style={{
-          height: `${service.length*100}lvh`
+          height: `${service.length*100}svh`
         }}
       >
-        <div ref={sectRef} className="sticky min-h-[400px] h-lvh top-0 p-nav flex items-center overflow-hidden">
+        <div ref={sectRef} className="sticky min-h-[400px] h-svh top-0 p-nav flex items-center overflow-hidden">
           <animated.div
             style={{
               translateX: scrollY.to(val=> {

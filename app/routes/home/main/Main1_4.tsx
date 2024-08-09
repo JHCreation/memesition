@@ -59,8 +59,8 @@ export default function Main1_4 () {
   
   return (
     <div className="bg-gray-600">
-      <section ref={containerRef} className='h-[800vh]'>
-        <div ref={sectRef} className="sticky h-dvh top-0 pt-0 overflow-hidden">
+      <section ref={containerRef} className='h-[800svh]'>
+        <div ref={sectRef} className="sticky h-svh top-0 pt-0 overflow-hidden">
           <div className="h-full flex flex-col justify-between pt-nav ">
             <div className="font-[Pretendard] font-black leading-[1] text-[60px] uppercase">
               <h1 className="">so we built</h1>
