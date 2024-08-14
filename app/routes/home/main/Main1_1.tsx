@@ -31,7 +31,7 @@ export default function Main1_1 () {
           </div>
           
         </div>
-        <div className="text-3xl font-bold leading-8 break-keep">
+        <div className="text-3xl font-bold leading-10 break-keep">
           <RisingText text={`${txt_1}${txt_2}${txt_3}`} startDelay={200} delay={100} once={true} />
         </div>
         {/* <div className="text-3xl font-bold leading-8">
@@ -48,15 +48,18 @@ export default function Main1_1 () {
           
             <div className="ml-auto w-full max-w-[256px] break-keep">
               <div className="overflow-hidden text-sm">
-                <Rising2 once={true} startDelay={500}>
+                <RisingText text={`우리는 우리가 할 수있는 모든 서비스를 제공합니다. 비즈니스의 상황에 따라 A-Z까지 모든 서비스를 제공할 수는 없을 수도 있습니다. 범위를 벗어나 무리한 서비스를 제공하기보다는 가장 최선의 서비스를 제공하는데 더 힘을 쓰도록 노력할 것입니다.`} startDelay={500} delay={100} once={true} />
+                {/* <Rising2 once={true} startDelay={500}>
                   우리는 우리가 할 수있는 모든 서비스를 제공합니다. 비즈니스의 상황에 따라 A-Z까지 모든 서비스를 제공할 수는 없을 수도 있습니다. 범위를 벗어나 무리한 서비스를 제공하기보다는 가장 최선의 서비스를 제공하는데 더 힘을 쓰도록 노력할 것입니다. <br/><br/>
-                </Rising2>
+                </Rising2> */}
               </div>
+              <br />
               <div className="overflow-hidden text-sm font-bold">
-                <Rising2 once={true} startDelay={600}>
+                <RisingText text={`합리적인 비용으로 최고의 비즈니스 파트너를 만들어보세요! 미마이즈가 가장 최선의 파트너가 될 것입니다.`} startDelay={600} delay={100} once={true} />
+                {/* <Rising2 once={true} startDelay={600}>
                 합리적인 비용으로 최고의 비즈니스 파트너를 만들어보세요!
                   <span className="text-"> 미마이즈</span>가 가장 최선의 <span className="text-">파트너</span>가 될 것입니다.
-                </Rising2>
+                </Rising2> */}
               </div>
           </div>
         </div>

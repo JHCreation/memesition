@@ -26,11 +26,13 @@ export default {
 				return {
 					input: '#b0bec5',
 					['input-text']: '#607d8b',
+          paper: colors.stone[50]
 				}
 			},
       spacing: {
-				'1000px': '1000px',
-				'1200px': '1200px',
+				'container-sm': '800px',
+				'container-md': '1000px',
+				'container': '1200px',
 				'1/8': '12.5%',
 				'1/10': '10%',
 				'1/3': '33.333333%',
@@ -47,7 +49,7 @@ export default {
 			},
     },
   },
-  plugins: [require('daisyui')],
+  plugins: [require("@designbycode/tailwindcss-text-stroke"), require('daisyui')],
   daisyui: {
     themes: [
       "light",

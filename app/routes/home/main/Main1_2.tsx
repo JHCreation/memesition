@@ -112,9 +112,11 @@ export default function Main1_2 () {
                       </div>
                       <div className="text-center text-[3em] uppercase text-black leading-none font-medium mt-2">{val.title}</div>
                     </div>
+
                     <div className=" w-full flex justify-center">
-                      <div className="w-full leading-tight max-w-[700px] relative text-center text-sm text-black font-thin break-keep">
-                        <RisingText text={`${val.desc}`} startDelay={0} delay={0} once={true} />
+                      <div className="w-full leading-snug max-w-[700px] relative text-left py-3 text-md text-black font-medium break-keep ">
+                        {/* <RisingText text={`${val.desc}`} startDelay={0} delay={0} once={true} /> */}
+                        {val.desc}
                       </div>
                     </div>
                   </div>

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@cyriacbr/react-split-text": "^1.0.0",
+    "@designbycode/tailwindcss-text-stroke": "^1.2.1",
     "@react-spring/parallax": "^9.7.3",
     "@react-spring/web": "^9.7.3",
     "@remix-run/node": "^2.10.2",

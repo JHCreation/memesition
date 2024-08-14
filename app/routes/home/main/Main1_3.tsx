@@ -39,13 +39,6 @@ export default function Main1_3 () {
       start: -windowSize?.height,
       end: -0
     },
-    action: ({progress, containerDom})=> {
-      const width= screen.width.get() || windowSize?.width
-      const moving= slideDistance-width+450;
-      const res= -((progress) * (moving))
-      return `${res > 0 ? 0 : (-res > moving ? -(moving) : res )}px`
-      // return progress
-    }
   }) 
 
   
@@ -72,7 +65,13 @@ export default function Main1_3 () {
                     // end: scrolls.get('distanceOffset').end,
                   },
                 })
-                return scrolls.event()
+                const progress= scrolls.getProgress();
+                if( !progress ) return ''
+                const width= screen.width.get() || windowSize?.width
+                const moving= slideDistance-width+450;
+                const res= -((progress) * (moving))
+                return `${res > 0 ? 0 : (-res > moving ? -(moving) : res )}px`
+                // return progress
               })
             }}
             className={`whitespace-nowrap ml-[400px]`}

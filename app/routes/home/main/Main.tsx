@@ -13,6 +13,9 @@ import Main1_7 from './Main1_7'
 import Main1_1 from './Main1_1'
 import LinkArrow from '~/components/ui/LinkArrow'
 import { MediaQuery, MediaQuerySize, useMediaQueryState } from '~/store/store'
+import Main1_4_0 from './Main1_4_0'
+import Main1_3_0 from './Main1_3_0'
+import Main1_8 from './Main1_8'
 
 const fn= _.throttle((scrollYProgress, value)=> {
   console.log(scrollYProgress)
@@ -181,12 +184,16 @@ export default function Main() {
 
       <Main1_1/>
       <Main1_3 />
+      <Main1_3_0 />
       <Main1_2/>
+      <Main1_4_0 />
       <Main1_4 />
       <Main1_5 />
       <Main1_6 />
       <Main1_7 />
-      <div className="h-96"></div>
+      <Main1_8 />
+      
+      {/* <div className="h-96"></div> */}
     </div>
   )
 }

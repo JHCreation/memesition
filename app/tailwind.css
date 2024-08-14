@@ -22,7 +22,7 @@
 
   .ag-theme-quartz {
     /* --ag-active-color: rgb(126, 46, 132); */
-    --ag-active-color: theme(colors.main);
+    --ag-active-color: theme(colors.primary);
     /* --ag-checkbox-checked-color: var(--ag-active-color); */
   }
   
@@ -123,6 +123,24 @@
     font-weight: 300 900;
     src: url('https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/variable/woff2/SUITE-Variable.woff2') format('woff2-variations');
   }
+  @font-face {
+    font-family: 'Danjo-bold-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Danjo-bold-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'HSBombaram21-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/HSBombaram21-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'PuradakGentleGothicR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.1/PuradakGentleGothicR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
   
   ::-webkit-scrollbar { width: 6px; height: 6px; background-color: transparent; }
   ::-webkit-scrollbar-track:hover { background-color: #ececec; }

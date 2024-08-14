@@ -267,18 +267,13 @@ export function RisingText ({ text, startDelay, delay, once }: Prop) {
         <SplitText
           // className='text-3xl'
           LineWrapper={({ lineIndex, extraProps, children }:any) => {
-            return <div className='inline-block overflow-hidden '>
+            return <div className='overflow-hidden '>
               
               <animated.span 
                 style={boxSprings[lineIndex]}
                 className={`inline-block whitespace-pre`}
                 // className={`inline-block transition-all duration-1000 translate-y-[100%] group-[.inView]:translate-y-0`}
               >
-                {/* <span className="">{lineIndex == 0 ? extraProps :''}</span> */}
-                {
-                  // lineIndex == 0 &&
-                  // <span className="">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
-                }
                 {children}
               </animated.span>
             </div>
@@ -293,7 +288,7 @@ export function RisingText ({ text, startDelay, delay, once }: Prop) {
           }}
           LetterWrapper={({lineIndex, letterIndex, wordIndex, extraProps, children}:any)=> {
             return children
-            return `${wordIndex == 0 ? extraProps :''}${children}`
+            // return `${wordIndex == 0 ? extraProps :''}${children}`
           }}
           // extraProps={'....................'}
           {...({ children: text } as any )}

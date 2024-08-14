@@ -293,6 +293,11 @@
   resolved "https://registry.yarnpkg.com/@darkroom.engineering/tempus/-/tempus-0.0.46.tgz#3d958807503e4055fcc4a1aeeff83ca0546c62f0"
   integrity sha512-s5vav3KMHYezvUCl4ee5epg0oimF6M8C9gAaKxFnFaTvX2q3ywFDryIv6XLd0mRFUt3S1uHDJqKaiEcs2ZVSvw==
 
+"@designbycode/tailwindcss-text-stroke@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@designbycode/tailwindcss-text-stroke/-/tailwindcss-text-stroke-1.2.1.tgz#53180ad7dfefe506a9d506e8b4c1c29356f8367f"
+  integrity sha512-6SqiFuMjJaWWv5Mm+RIu8Ui3Kc/8AK3m0qSocPOFhk4yS6aMVioy8QLghAj5KOR/8lsfZe3r7I1uJ7YM1FimUA==
+
 "@emotion/hash@^0.9.0":
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.9.2.tgz#ff9221b9f58b4dfe61e619a7788734bd63f6898b"
