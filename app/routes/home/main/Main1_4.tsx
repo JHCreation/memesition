@@ -30,9 +30,9 @@ export default function Main1_4 () {
         container: containerRef.current,
         distanceOffset: {
           start: -100,
-          end: (-screen.height.get() || scrolls_1.get("distanceOffset").end)
+          end: (-screen.height.get()*2 || scrolls_1.get("distanceOffset").end)
         }
-      }) 
+      })
       
       // const position_1= scrolls_1.getPosition()
       // if( !position_1 ) return;
@@ -66,7 +66,7 @@ export default function Main1_4 () {
     container: containerRef.current,
     distanceOffset: {
       start: -100,
-      end: -(screen.height.get() || windowSize?.height),
+      end: -(screen.height.get()*2 || windowSize?.height*2),
     }
   }) 
 
@@ -82,12 +82,12 @@ export default function Main1_4 () {
             </div>
             <animated.div
               style={{
-                scale: springTitle.per.to(val=> {
+                scale: springTitle.per.to(progress=> {
                   const screenWidth= screen.width.get() || windowSize?.width
                   const def= 1950
                   const ratio= (screenWidth)/def
                   const varWidth= ratio < 0 ? 1 : ratio
-                  return val*(varWidth)*30
+                  return progress*(varWidth)*30
                 }),
                 opacity: springTitle.per.to(progress=> {
                   const value= progress*10 > 1 ? 1 : progress*10

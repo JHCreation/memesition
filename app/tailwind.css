@@ -156,7 +156,26 @@
   }
 
   
+  
+  
+  .d_btn {
+    @apply cursor-pointer relative inline-block overflow-hidden text-paper hover:text-black bg-black duration-300
+  }
+  .d_btn::before {
+    @apply content-[''] w-full h-full absolute left-0 origin-top bottom-0 bg-paper scale-y-0 transition-transform duration-300
+  }
+  .d_btn:hover::before {
+    @apply scale-y-100 origin-bottom
+  }
+  .list_item_1 {
+    @apply relative
+  }
+  .list_item_1::before {
+    @apply content-[''] block w-2 h-2 bg-black rounded-lg absolute top-[50%] left-0 translate-y-[-50%]
+  }
+  
 }
+
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
@@ -183,7 +202,5 @@ body {
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  
 }

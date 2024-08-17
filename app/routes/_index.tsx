@@ -14,12 +14,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
 
-  const lenis = useLenis(({ scroll }) => {
-    // console.log(scroll)
-    // called every scroll
-  })
-  console.log(lenis)
-
+  const lenis = useLenis(({ scroll }) => {})
   return (
     <>
     <ReactLenis root>

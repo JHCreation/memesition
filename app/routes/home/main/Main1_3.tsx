@@ -5,12 +5,11 @@ import { ScreenContext } from "../layout_1";
 import SectionScroll from "./SectionScroll";
 import _ from "lodash";
 import { service } from "./Service";
+import { useMediaQueryState } from "~/store/store";
 
 
 
-const slideWidth= 400;
-const slideWidthCss= `w-[400px] min-w-[400px]`
-const slideDistance= slideWidth*(service.length);
+
 
 const scrolls= new SectionScroll({
   actionOffset: {
@@ -25,6 +24,8 @@ const scrolls= new SectionScroll({
 
 
 export default function Main1_3 () {
+  const mediaQueryState= useMediaQueryState()
+  const { mediaQuery, currentSize }= mediaQueryState
   const {screen, windowSize} = useContext(ScreenContext)
   const scroll= useScroll()
   const { scrollY }= scroll;
@@ -41,6 +42,9 @@ export default function Main1_3 () {
     },
   }) 
 
+
+  const slideWidth= mediaQuery.md ? 400 : 250;
+  const slideDistance= slideWidth*(service.length);
   
   return (
     <div>
@@ -57,7 +61,6 @@ export default function Main1_3 () {
                 const sectDom= sectRef?.current?.getBoundingClientRect();
                 if( !screenHeight || !sectDom ) return ''
                 const { height: sectHeight }= sectDom;
-                console.log(scrolls.get('distanceOffset').end, sectHeight)
                 scrolls.set({
                   distanceOffset: {
                     start: -(screen.height.get() || windowSize?.height),
@@ -80,30 +83,39 @@ export default function Main1_3 () {
             {
               service.map((service,i)=> {
                 const { name, tech, color }= service;
-                return <div key={i} className={`flex pr-10 ${slideWidthCss}`}>
-                  <div className={`w-full border ${color} pt-6 pl-6 flex flex-col`}>
-                    <div className={`font-[GmarketSans]  ${color.text} font-extralight text-3xl`}>{String(i+1).padStart(2, '0')}</div>
-                    
-                    <div className="text-2xl font-black">{name}</div>
+                return (
+                  <div 
+                    key={i} 
+                    className={`flex pr-10`}
+                    style={{
+                      width: slideWidth,
+                      maxWidth: slideWidth,
+                    }}
+                  >
+                    <div className={`w-full border ${color} pt-6 pl-6 flex flex-col`}>
+                      <div className={`font-[GmarketSans]  ${color.text} font-extralight text-3xl`}>{String(i+1).padStart(2, '0')}</div>
+                      
+                      <div className="text-2xl font-black">{name}</div>
 
-                    
-                    <div className="leading-4 text-xs flex-1 w-full flex flex-col justify-end">
+                      
+                      <div className="leading-4 text-xs flex-1 w-full flex flex-col justify-end">
 
-                    <div className="mt-10">
-                      <ul className="w-1/2 ml-auto">
-                      {
-                        tech.map(tech=> {
-                          return (
-                            <li key={tech} className="border-t px-1 py-0.5"> {tech} </li>
-                          )
-                        })
-                      }
-                      </ul>
-                    </div>
+                      <div className="mt-10">
+                        <ul className="w-1/2 ml-auto">
+                        {
+                          tech.map(tech=> {
+                            return (
+                              <li key={tech} className="border-t px-1 py-0.5"> {tech} </li>
+                            )
+                          })
+                        }
+                        </ul>
+                      </div>
 
+                      </div>
                     </div>
                   </div>
-                </div>
+                )
               })
             }
             </div>

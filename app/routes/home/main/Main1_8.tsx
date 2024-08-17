@@ -10,27 +10,23 @@ export default function Main1_8 () {
   const {screen, windowSize} = useContext(ScreenContext)
   const scroll= useScroll({
     onChange: (result, ctrl, item)=> {
-      const start= screen.height.get() || scrolls?.get('distanceOffset').start
-      const end= screen.height.get() || scrolls?.get('distanceOffset').end
-      console.log(screen.height.get(), windowSize?.height)
       scrolls.set({ 
         container: containerRef.current,
         distanceOffset: {
           start: screen.height.get() ? -(screen.height.get())/2 : scrolls?.get('distanceOffset').start,
           end: screen.height.get() ? -(screen.height.get()) : scrolls?.get('distanceOffset').end,
         },
-        print: true
+        // print: true
       }) 
       
       const progress= scrolls.getProgress()
-      console.log(progress)
       if( !progress ) return;
-      
       api.start({ per: progress})
     }
   })
 
 
+  const [spring, api]= useSpring( ()=> ({ per: 0 }) )
   const containerRef= useRef<HTMLDivElement>(null)
   scrolls.set({ 
     scroll,
@@ -41,31 +37,29 @@ export default function Main1_8 () {
     },
     
   }) 
-  const [spring, api]= useSpring( ()=> ({ per: 0 }) )
   return (
-    <footer className=" h-dvh bg-stone-50 z-0">
+    <footer className="relative h-dvh bg-stone-50 z-0">
       <div ref={containerRef} className="h-[200dvh] relative top-[-100dvh]">
-        <div className="h-dvh-nav sticky top-nav p-16">
+        <div className="h-dvh-nav sticky top-nav w-full p-4 md:p-16 flex items-center justify-center">
           
           <animated.div 
-            className="flex "
+            className="md:flex w-full max-w-container"
             style={{
               y: spring.per.to( progress => {
-                console.log(progress)
                 const val= (1-progress)*100
                 return `-${val <= 0 ?  0 : val}%`
               })
             }}
           >
-            <div className="w-1/3 ">
+            <div className="w-full md:w-1/3 ">
               <div className="w-full pr-20">
                 <div className="border-b px-2 py-1 ">
                   Social Media :
                 </div>
                 <div className="flex flex-col">
                   {
-                    ['about','portfolio','contact'].map((v,i)=> {
-                      return <LinkText_2 key={v} className='flex-1 px-2 py-1 border-b last:border-none'>
+                    ['Instagram','Email','contact'].map((v,i)=> {
+                      return <LinkText_2 key={v} className='flex-1 px-2 py-1 border-b'>
                       <div className="relative flex items-center justify-between group-hover:text-accent group-hover:px-2 duration-200 ">
                         {v}
                         <div className="w-3 ">
@@ -81,18 +75,18 @@ export default function Main1_8 () {
               </div>
             </div>
 
-            <div className="w-2/3">
+            <div className="w-full md:w-2/3">
               <div className="border-b px-2 py-1 ">
                 Menu :
               </div>
-              <ul className="">
-                <li className="text-[20svh] leading-none border-b">
+              <ul className="text-4xl md:text-[20svh] leading-none">
+                <li className="border-b">
                   Home
                 </li>
-                <li className="text-[20svh] leading-none border-b">
+                <li className="border-b">
                   About
                 </li>
-                <li className="text-[20svh] leading-none border-b">
+                <li className="border-b">
                   Contact
                 </li>
               </ul>

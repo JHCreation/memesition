@@ -60,9 +60,9 @@ export default function Main1_6 () {
       className="bg-paper relative z-10"
       style={{ height: `${(len)*100}lvh`}}
     >
-      <div className="sticky top-0 h-dvh pt-nav  w-full  overflow-hidden">
-        <div className="h-full p-10 relative">
-          <div className="h-full relative">
+      <div className="sticky top-0 h-dvh pt-nav w-full max-w-container mx-auto overflow-hidden">
+        <div className="h-full p-3 md:p-10 relative">
+          <div className="h-full relative ">
           {/* {
             [...Array(9)].map((v,i)=> {
               const dom= container_1_Ref.current?.getBoundingClientRect()
@@ -91,32 +91,31 @@ export default function Main1_6 () {
                 <animated.div key={i} style={springsCard[i]}>
                   <div 
                     ref={itemRef}
-                    className="absolute text-white bg-gray-800 bg-opacity-40 backdrop-blur-sm" 
+                    className="absolute text-white bg-gray-800 bg-opacity-40 backdrop-blur-sm w-[70%] md:w-[30%]" 
                     style={{ 
-                      width: `${30}%`,
-                      
-                      top: `calc( (100dvh - 5rem - 70px - ${item?.height}px) / ${len} * ${i})`, 
+                      // width: `${30}%`,
+                      top: `calc( (100dvh - 1.5rem - 70px - ${item?.height}px) / ${len} * ${i})`, 
                       // left: i*(dom && item ? (dom?.width)/len : 0) 
-                      left: `calc( (100vw - 5rem - ${item?.width}px) / ${len-1} * ${i})`
+                      left: `calc( (100% - 1.5rem - ${item?.width}px) / ${len-1} * ${i})`
                     }}
                   >
-                    <div className="relative aspect-square p-5 flex">
+                    <div className="relative aspect-[1/1.15] md:aspect-square p-5 flex">
                       <div className="flex flex-col w-full">
                         <div className="flex items-end ">
-                          <div className="w-full max-w-[130px]">
+                          <div className="w-full max-w-[54px] md:max-w-[130px]">
                             <img src={val.img} alt="" />
                           </div>
-                          <p className="font-[] text-4xl font-black ml-4">{val.name}</p>
+                          <p className="font-[] text-xl md:text-4xl font-black ml-2 md:ml-4">{val.name}</p>
                         </div>
                         <div className="flex-1 flex flex-col justify-end">
-                          <div className="mt-5">
-                            <p className="font-black text-stone-200">
+                          <div className="mt-2 md:mt-5">
+                            <p className="text-sm font-black text-stone-200">
                               {val.title}
                             </p>
                           </div>
-                          <ul className="text-xs mt-5 border-t border-white w-full max-w-[200px]">
+                          <ul className="text-2xs mt-2 md:mt-5 border-t border-white w-full max-w-[200px]">
                           {
-                            val.subject.map(tech=> <li className="border-b border-white">{tech}</li>)
+                            val.subject.map((tech,i)=> <li key={i} className="border-b border-white">{tech}</li>)
                           }
                           </ul>
                         </div>

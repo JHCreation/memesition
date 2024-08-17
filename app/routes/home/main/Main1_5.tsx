@@ -8,21 +8,6 @@ import { characterTitle, characterDesc } from "./Service";
 import _ from 'lodash'
 
 
-
-// const text= "합리적인 가격"
-// const textLen= text.length;
-
-/* const calcCard= (key, progress)=> {
-  const start= key/25
-  // const end= (key+1)/10
-  if( progress > start ) {
-    const y= (progress-start)
-    return ((y*12)**2)/2
-  }
-  return false
-} */
-
-
 const scrolls= new SectionScroll({
   actionOffset: {
     start: 0,
@@ -33,8 +18,6 @@ const scrolls= new SectionScroll({
     end: 0
   }
 })
-
-
 
 
 export default function Main1_5 () {
@@ -53,13 +36,9 @@ export default function Main1_5 () {
       const progress= scrolls.getProgress()
       if( !progress ) return
       const height= scrolls?.position ? scrolls.position.containerDom.height : 0;
-      
-      
-      // api.start({per: progress})
       trailApi.start({y: progress})
     }
   })
-  const { scrollY, scrollYProgress }= scroll;
 
   scrolls.set({ 
     screen: screen,
@@ -70,9 +49,6 @@ export default function Main1_5 () {
     },
   }) 
 
-  // const [spring, api]= useSpring(()=> ({
-  //   from: { per: 0 }
-  // }))
 
   
   
@@ -107,15 +83,15 @@ export default function Main1_5 () {
     >
 
       <div className="w-full max-w-container-md mx-auto ">
-        <div className="flex">
-          <section className='w-1/2 '>
+        <div className="md:flex flex-col md:flex-row relative w-full">
+          <section className='w-full md:w-1/2 '>
           {
             characterTitle.map((service, key)=> {
               return (
                 
-                <div className="h-[150lvh]">
-                  <div className="sticky top-nav ">
-                    <span className="text-4xl uppercase">{service.title}</span>
+                <div key={service.title} className="h-[150lvh]">
+                  <div className="sticky top-nav bg-paper z-10 ">
+                    <span className="text-2xl md:text-4xl font-extrabold uppercase">{service.title}</span>
                   </div>
                 </div>
 
@@ -125,19 +101,18 @@ export default function Main1_5 () {
           }
           </section>
 
-          <div className="">
+          <div className="absolute top-[10%] left-0 md:relative md:top-auto w-full break-keep">
           {
             characterDesc.map((list, i)=> {
               len++
-              console.log(len)
               return (
-                <div className="mb-[30svh]">
+                <div key={list.name} className="mb-[30svh] w-full relative">
                   <animated.div style={motion(0)} >
-                    <div className="text-4xl leading-[1.4]">
+                    <div className="text-lg md:text-4xl leading-[1.4]">
                       <RisingText text={list.name}/>
                     </div>
                   </animated.div>
-                    
+                  
                   <animated.div style={motion(1)} >
                     <RisingText text={list.desc} />
                   </animated.div>

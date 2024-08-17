@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 const defaultTheme = require('tailwindcss/defaultTheme')
 
-const nav= '68px';
+const nav= '48px';
 const nav_m= '48px';
 const side= '240px';
 const side_m= '180px';
@@ -32,7 +32,7 @@ export default {
       spacing: {
 				'container-sm': '800px',
 				'container-md': '1000px',
-				'container': '1200px',
+				'container': '1680px',
 				'1/8': '12.5%',
 				'1/10': '10%',
 				'1/3': '33.333333%',

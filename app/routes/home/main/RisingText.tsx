@@ -9,10 +9,12 @@ interface Prop {
   startDelay?: number, 
   delay?: number, 
   once?: boolean
+  className?: string
+  textClassName?: string
   children?: ReactNode
 }
 
-export function Rising ({ text, startDelay, delay, once, children }: Prop) {
+export function Rising ({ text, startDelay, delay, once, className, children }: Prop) {
   const delaySec= !delay ? 100 : delay 
   const startDelaySec= !startDelay ? 1 : startDelay 
   const [riseRef, riseInView] = useInView(()=> {
@@ -94,6 +96,7 @@ export function Rising ({ text, startDelay, delay, once, children }: Prop) {
   return (
     <animated.div 
       ref={riseRef} 
+      className={className}
     >
       <animated.span 
         style={boxSprings[0]}
@@ -208,7 +211,7 @@ export function Rising2 ({ text, startDelay, delay, once, children }: Prop) {
     >
       <animated.span 
         style={boxSprings[0]}
-        className="inline-block "
+        className=""
         // className={`inline-block transition-all duration-1000 translate-y-[100%] group-[.inView]:translate-y-0`}
       >
       {children}
@@ -222,7 +225,7 @@ export function Rising2 ({ text, startDelay, delay, once, children }: Prop) {
 
 
 
-export function RisingText ({ text, startDelay, delay, once }: Prop) {
+export function RisingText ({ text, startDelay, delay, once, className, textClassName }: Prop) {
   const delaySec= !delay ? 0 : delay 
   const startDelaySec= !startDelay ? 1 : startDelay 
   const [riseRef, riseInView] = useInView(()=> {
@@ -257,7 +260,7 @@ export function RisingText ({ text, startDelay, delay, once }: Prop) {
 
   return (
     <>
-    <animated.div ref={riseRef}>
+    <animated.div ref={riseRef} className={className}>
       {
         !isClient &&
         <div className="opacity-0">{text}</div>
@@ -271,21 +274,21 @@ export function RisingText ({ text, startDelay, delay, once }: Prop) {
               
               <animated.span 
                 style={boxSprings[lineIndex]}
-                className={`inline-block whitespace-pre`}
+                className={`inline-block whitespace-pre ${textClassName}`}
                 // className={`inline-block transition-all duration-1000 translate-y-[100%] group-[.inView]:translate-y-0`}
               >
                 {children}
               </animated.span>
             </div>
           }}
-          WordWrapper={({wordIndex, children}:any)=> {
+          /* WordWrapper={({wordIndex, children}:any)=> {
             let indent= true;
             for (let index = 0; index < 3; index++) {
               if( children?.[index]?.props.children !='_' ) indent= false
             }
             return <span className={`${indent ? 'opacity-0': ''}`}>{children}</span>
 
-          }}
+          }} */
           LetterWrapper={({lineIndex, letterIndex, wordIndex, extraProps, children}:any)=> {
             return children
             // return `${wordIndex == 0 ? extraProps :''}${children}`

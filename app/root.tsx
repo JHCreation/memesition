@@ -43,7 +43,7 @@ export const meta: MetaFunction = () => {
 
 export async function loader() {
   const env = process.env.NODE_ENV;
-  console.log(env, 'url', process.env.PUBLIC_API_URL)
+  // console.log(env, 'url', process.env.PUBLIC_API_URL)
   dotenv.config({ path: path.resolve(process.cwd(), `.env.${env}.local`) });
   dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
   dotenv.config(); // 기본 .env 파일
@@ -69,7 +69,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   }, [xs, sm, md, lg, xl])
   
   const env = useLoaderData<typeof loader>();
-  console.log(mediaQuery, env, 'envenv')
+  // console.log(mediaQuery, env, 'envenv')
 
   const [queryClient] = useState(
     () =>
@@ -118,7 +118,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               'select',
               'textarea',
               'button',
-              '.link',
+              '.links',
               {
                 target: '.custom',
                 // innerScale: 2,
