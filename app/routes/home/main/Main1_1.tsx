@@ -20,7 +20,7 @@ export default function Main1_1 () {
   const { mediaQuery }= mediaQueryState
 
   return (
-    <section className='p-4 md:p-10 overflow-hidden'>
+    <section className='px-4 md:py-20 md:px-8 overflow-hidden w-full max-w-container mx-auto'>
       <div className="relative">
         {/* <div className="flex items-center absolute top-[.1em] left-0">
           <div className="text-xs font-bold leading-8 ">
@@ -38,7 +38,7 @@ export default function Main1_1 () {
 
 
         <div className="flex items-center md:float-start">
-          <div className="text-xs font-bold mt-[.9em] mr-4 leading-loose border-t-2 w-full md:w-[240px] mb-3 md:mb-0">
+          <div className="text-xs font-bold mt-[.4em] md:mt- md:mr-4 leading-loose border-t-2 w-full md:w-[240px] mb-3 md:mb-0">
             <RisingText text={'Who we are'} startDelay={100} once={true}/>
           </div>
           {/* <div className="overflow-hidden mr-1 relative flex fles-col items-center">

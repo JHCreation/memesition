@@ -17,8 +17,8 @@ const scrolls= new SectionScroll({
 
 const scrolls_1= new SectionScroll({})
 
-const colorInterval= [0, .1, .3,.6, 1]
-const colorInterpolation= ['#6d0076', '#6d0076', '#ff8600',  '#0075c2', '#fafaf9']
+const colorInterval= [0, .1, .3, .6, .7, 1]
+const colorInterpolation= ['#6d0076', '#6d0076', '#ff8600',  '#0075c2', '#fafaf9', '#fafaf9']
 export default function Main1_4 () {
   const {screen, windowSize} = useContext(ScreenContext)
   const scroll= useScroll({
@@ -30,7 +30,7 @@ export default function Main1_4 () {
         container: containerRef.current,
         distanceOffset: {
           start: -100,
-          end: (-screen.height.get()*2 || scrolls_1.get("distanceOffset").end)
+          end: (-screen.height.get()*-1.5 || scrolls_1.get("distanceOffset").end)
         }
       })
       
@@ -66,7 +66,7 @@ export default function Main1_4 () {
     container: containerRef.current,
     distanceOffset: {
       start: -100,
-      end: -(screen.height.get()*2 || windowSize?.height*2),
+      end: -(screen.height.get()*-1.5 || windowSize?.height*-1.5),
     }
   }) 
 

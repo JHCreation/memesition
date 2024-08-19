@@ -232,3 +232,51 @@ export const characters= [
   },
   
 ]
+
+
+export const why= [
+  { 
+    title: <div className="text-9xl font-[]">
+      <div className="">
+        <span className="text-primary">w</span>
+        <span className="text-secondary">h</span>
+        <span className="text-accent">y</span>
+      </div>
+    </div>,
+    list: [
+      {
+        subject: <div className="">독창적 Unique</div>,
+        desc: <div className="">창의적이고 독창적인 결과물을 만들어 냅니다. 작은 요소나 문자 하나의 변화라도 꼭 새로운 결과물을 제시합니다.</div>
+      },
+      {
+        subject: <div className="">Make your animations flawless333</div>,
+        desc: <div className="">Synchronization with native scroll is not reliable. Those jumps and delays with scroll-linked animations are caused by multi-threading, where modern browsers run animations/effects asynchronously with the scroll. Smooth scroll fixes this.3</div>
+      },
+      {
+        subject: <div className="">Make your animations flawless34</div>,
+        desc: <div className="">Synchronization with native scroll is not reliable. Those jumps and delays with scroll-linked animations are caused by multi-threading, where modern browsers run animations/effects asynchronously with the scroll. Smooth scroll fixes this.4</div>
+      },
+    ]
+    
+  },
+  { 
+    title: <div className="">
+      why
+    </div>,
+    list: [
+      {
+        subject: <div className="">Make your animations flawless</div>,
+        desc: <div className="">Synchronization with native scroll is not reliable. Those jumps and delays with scroll-linked animations are caused by multi-threading, where modern browsers run animations/effects asynchronously with the scroll. Smooth scroll fixes this.</div>
+      },
+      {
+        subject: <div className="">Make your animations flawless333</div>,
+        desc: <div className="">Synchronization with native scroll is not reliable. Those jumps and delays with scroll-linked animations are caused by multi-threading, where modern browsers run animations/effects asynchronously with the scroll. Smooth scroll fixes this.3</div>
+      },
+      {
+        subject: <div className="">Make your animations flawless34</div>,
+        desc: <div className="">Synchronization with native scroll is not reliable. Those jumps and delays with scroll-linked animations are caused by multi-threading, where modern browsers run animations/effects asynchronously with the scroll. Smooth scroll fixes this.4</div>
+      },
+    ]
+    
+  },
+]

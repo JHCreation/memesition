@@ -43,10 +43,11 @@ export default function Main1_6 () {
   const [springsCard, apiCard]= useSprings(len, (i) => ({
     from: { x: '120%', y: '120%' },
   }))
+  const container_Ref= useRef<HTMLDivElement>(null)
   const container_1_Ref= useRef<HTMLDivElement>(null)
   const itemRef= useRef<HTMLDivElement>(null)
   scrolls.set({ 
-    container: container_1_Ref.current,
+    container: container_Ref.current,
     distanceOffset: {
       // start: -(screen.height.get() || windowSize?.height),
       start: 0,
@@ -56,16 +57,16 @@ export default function Main1_6 () {
   }) 
   return (
     <section 
-      ref={container_1_Ref} 
+      ref={container_Ref} 
       className="bg-paper relative z-10"
       style={{ height: `${(len)*100}lvh`}}
     >
       <div className="sticky top-0 h-dvh pt-nav w-full max-w-container mx-auto overflow-hidden">
         <div className="h-full p-3 md:p-10 relative">
-          <div className="h-full relative ">
+          <div ref={container_1_Ref} className="h-full relative ">
           {/* {
             [...Array(9)].map((v,i)=> {
-              const dom= container_1_Ref.current?.getBoundingClientRect()
+              const dom= container_Ref.current?.getBoundingClientRect()
               return (
                 <animated.div key={i} style={springsCard[i]}>
                   <div 
@@ -83,20 +84,19 @@ export default function Main1_6 () {
 
           {
             characters.map((val,i)=> {
-              const dom= container_1_Ref.current?.getBoundingClientRect()
-              const screenHeight= screen.height.get() || windowSize?.height
               const item= itemRef.current?.getBoundingClientRect()
+              const box= container_1_Ref.current?.getBoundingClientRect()
 
               return (
-                <animated.div key={i} style={springsCard[i]}>
+                <animated.div key={i} style={springsCard[i]} >
                   <div 
                     ref={itemRef}
                     className="absolute text-white bg-gray-800 bg-opacity-40 backdrop-blur-sm w-[70%] md:w-[30%]" 
                     style={{ 
                       // width: `${30}%`,
-                      top: `calc( (100dvh - 1.5rem - 70px - ${item?.height}px) / ${len} * ${i})`, 
+                      top: `calc( (${box?.height}px - ${item?.height}px) / ${len} * ${i})`, 
                       // left: i*(dom && item ? (dom?.width)/len : 0) 
-                      left: `calc( (100% - 1.5rem - ${item?.width}px) / ${len-1} * ${i})`
+                      left: `calc( (100% - ${item?.width}px) / ${len-1} * ${i})`
                     }}
                   >
                     <div className="relative aspect-[1/1.15] md:aspect-square p-5 flex">

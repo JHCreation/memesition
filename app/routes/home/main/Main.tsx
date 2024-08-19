@@ -17,6 +17,7 @@ import Main1_4_0 from './Main1_4_0'
 import Main1_3_0 from './Main1_3_0'
 import Main1_8 from './Main1_8'
 import { RisingText } from './RisingText'
+import Main1_3_1 from './Main1_3_1'
 
 const fn= _.throttle((scrollYProgress, value)=> {
   console.log(scrollYProgress)
@@ -75,7 +76,7 @@ export default function Main() {
   const {screen, windowSize} = useContext(ScreenContext)
   const mediaQueryState= useMediaQueryState()
   const { mediaQuery, currentSize }= mediaQueryState
-  console.log(currentSize)
+  // console.log(currentSize)
 
   const resize = useResize({})
 
@@ -87,9 +88,11 @@ export default function Main() {
     <div className="mt-nav-m md:mt-nav">
       <div className="flex flex-col md:flex-row h-full border-b">
         
-        <div className={`h-[calc(100vh+100px)] flex items-start w-full md:w-1/2 top-0 px-0`}>
+        <div
+          // style={{height: `calc(100vh + 50vh)`}} 
+          className={`h-lvh md:h-[calc(100vh+100px)] flex items-start w-full md:w-1/2 top-0 px-0`}>
           <div className="h-full w-full max-h-dvh-nav flex items-center justify-center">
-            <div className={`sticky top-nav`} >
+            <div className={`sticky top-nav py-8`} >
               <Trail open={true} mediaQuery={currentSize} wordRef={refDom}>
                 <span ref={ref}>우리의</span>
                 <span>
@@ -107,7 +110,7 @@ export default function Main() {
         
 
 
-        <div className="w-1/2 border-l flex">
+        <div className="w-full md:w-1/2 md:border-l flex">
 
           {/* <TestSpring on={on} mediaQuery={currentSize}/>
           <button className="btn" onClick={e=> setOn(!on)}>시작</button> */}
@@ -118,34 +121,41 @@ export default function Main() {
                 memyzee :
               </div>
             
-              <div className="break-keep ml-0 py-2 px-4">
+              <div className="break-keep ml-0 py-2 px-4 text-sm md:text-lg">
                 <RisingText text={'미마이즈는 다양한 서비스를 제공합니다. 비즈니스를 시작할 수 있는 가장 좋은 파트너가 될 수 있을 것입니다. 비즈니스를 시작하거나, 성장할 수 있는 업무와 서비스들을 지원 해드립니다.'} startDelay={100} once={true}/>
               </div>
             </div>
 
-            <div className="pt-6 flex justify-between break-keep leading-normal font- text- ">
-              <div className="flex- ml- px-3">
-                <RisingText text={'We have : '} startDelay={200} once={true}/>
-                <RisingText text={'1. 합리적인 비용'} startDelay={300} once={true}/>
-                <RisingText text={'2. 빠른 처리'} startDelay={400} once={true}/>
-                <RisingText text={'3. 다양한 서비스'} startDelay={500} once={true}/>
-                <RisingText text={'4. 만족스러운 결과'} startDelay={500} once={true}/>
-                {/* <RisingText text={'미마이즈는 다양한 서비스를 제공합니다. 비즈니스를 시작할 수 있는 가장 좋은 파트너가 될 수 있을 것입니다. 비즈니스를 시작하거나, 성장할 수 있는 업무와 서비스들을 지원 해드립니다.'} startDelay={100} once={true}/> */}
-              </div>
+            <div className="md:pt-6  break-keep leading-normal font- text- ">
+              <div className="flex flex-col md:flex-row justify-between ml- px-4 w-full md:w-auto">
+                <div className="text-sm ">
+                  <RisingText text={'We have : '} startDelay={200} once={true}/>
+                  <div className="flex flex-wrap md:flex-col gap-x-3">
+                    <RisingText text={'1. 합리적인 비용'} startDelay={300} once={true}/>
+                    <RisingText text={'2. 빠른 처리'} startDelay={400} once={true}/>
+                    <RisingText text={'3. 다양한 서비스'} startDelay={500} once={true}/>
+                    <RisingText text={'4. 만족스러운 결과'} startDelay={500} once={true}/>
+                  </div>
+                  {/* <RisingText text={'미마이즈는 다양한 서비스를 제공합니다. 비즈니스를 시작할 수 있는 가장 좋은 파트너가 될 수 있을 것입니다. 비즈니스를 시작하거나, 성장할 수 있는 업무와 서비스들을 지원 해드립니다.'} startDelay={100} once={true}/> */}
+                </div>
 
-              <div className="flex-">
-                <RisingText text={'Discover, Study, Have Fun: '} startDelay={200} once={true}/>
-                <RisingText text={'All-in-One Learning!'} startDelay={200} once={true}/>
-              </div>
-              <div className="flex- flex font-bold">
-                <div className="pr-10">
-                  <a href="mailto:memesition@naver.com" className=''>
-                    <RisingText className='' textClassName='link' text={'memesition@naver.com'} startDelay={300} once={true}/>
-                  </a>
-                  <RisingText className='' text={'@2024'} startDelay={200} once={true}/>
+                <div className="text-sm mt-4 md:w-full md:mt-0 md:flex md:justify-around ">
+                  <div className="flex-">
+                    <RisingText text={'Discover, Study, Have Fun: '} startDelay={200} once={true}/>
+                    <RisingText text={'All-in-One Learning!'} startDelay={200} once={true}/>
+                  </div>
+                  <div className="flex- flex font-">
+                    <div className="pr-10">
+                      <a href="mailto:memesition@naver.com" className=''>
+                        <RisingText className='' textClassName='link' text={'memesition@naver.com'} startDelay={300} once={true}/>
+                      </a>
+                      <RisingText className='' text={'@2024'} startDelay={200} once={true}/>
 
+                    </div>
+                  </div>
                 </div>
               </div>
+
               
               {/* <div className="text-xs w-full max-w-64 ml-auto p-2">
                 미마이즈는 다양한 서비스를 제공합니다. 기업이 성장할 수 있는 업무와 서비스들을 지원 해드립니다.
@@ -154,10 +164,10 @@ export default function Main() {
                 미마이즈는 다양한 서비스를 제공합니다. 기업이 성장할 수 있는 업무와 서비스들을 지원 해드립니다.
               </div> */}
             </div>
-            <div className="flex-1 flex flex-col justify-end w-1/2 ml-auto ">
+            <div className="flex-1 flex flex-col justify-end w-full md:w-1/2 ml-auto ">
               <div className="border-b px-0 py-3">
 
-                <div className="text-2xl max-w-72 leading-tight font-bold">
+                <div className="hidden md:block text-2xl max-w-72 leading-tight font-bold">
                   <RisingText className='' text={'Original Series by memesition® about the main design principles'} startDelay={300} once={true}/>
                   {/* Original Series by memesition® about the main design principles */}
                 </div>
@@ -191,6 +201,7 @@ export default function Main() {
 
       <Main1_1/>
       <Main1_3 />
+      <Main1_3_1 />
       <Main1_3_0 />
       <Main1_2/>
       <Main1_4_0 />

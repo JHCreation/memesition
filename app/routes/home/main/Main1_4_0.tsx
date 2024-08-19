@@ -79,9 +79,15 @@ export default function Main1_4_0 () {
           <animated.div 
             style={springs[0]}
           >
-            <div className="font-[HSBombaram21-Regular] font-black text-[4em] leading-[1.1] text-center">
-              <RisingText text={'We’re MEMESITION. We help organizations do incredible things together.'}/>
+            
+            <div className="font-[HSBombaram21-Regular] font-black text-[4em] leading-[1.2] text-center">
+              <RisingText text={'보고 계신 웹사이트가 저희의 첫 포트폴리오 입니다.'}/>
+              <RisingText text={'여러분만의 것을 만들어 보세요.'}/>
             </div>
+            {/* <div className="font-[HSBombaram21-Regular] font-black text-[4em] leading-[1.1] text-center">
+              <RisingText text={'The website you\'re looking at is our first portfolio.'}/>
+              <RisingText text={'Make your own.'}/>
+            </div> */}
           
           </animated.div>
           

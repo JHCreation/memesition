@@ -4,11 +4,11 @@ import { useCallback, useContext, useRef } from "react";
 import { ScreenContext } from "../layout_1";
 import SectionScroll from "./SectionScroll";
 import { RisingText } from "./RisingText";
-import { characterTitle, characterDesc } from "./Service";
+import { characterTitle, characterDesc, why } from "./Service";
 import _ from 'lodash'
 
 
-const scrolls= new SectionScroll({
+const scrolls= why.map(w=> new SectionScroll({
   actionOffset: {
     start: 0,
     end: 0
@@ -17,10 +17,18 @@ const scrolls= new SectionScroll({
     start: 0,
     end: 0
   }
-})
+}) )
 
 
-export default function Main1_5 () {
+export default function Main1_3_1 () {
+  return (
+    <div className="">
+      <Parallax scrolls={scrolls[0]} service={why[0]}/>
+      <Parallax scrolls={scrolls[1]} service={why[1]}/>
+    </div>
+  )
+} 
+function Parallax ({ scrolls, service }) {
   const {screen, windowSize} = useContext(ScreenContext)
   const containerRef= useRef<HTMLDivElement>(null)
   
@@ -54,7 +62,7 @@ export default function Main1_5 () {
   
 
   const [trails, trailApi] = useTrail(
-    2,
+    12,
     () => ({
       from: { y: 0 },
       // to: { opacity: 1 },
@@ -78,53 +86,57 @@ export default function Main1_5 () {
   return (
     <div 
       ref={containerRef} 
-      className="bg-gray- h-[300lvh] flex w-full max-w-screen-1 m-auto my-52"
+      className="bg-gray- h- flex w-full max-w-screen-1 m-auto my-52"
       
     >
 
       <div className="w-full max-w-container-md mx-auto ">
-        <div className="md:flex flex-col md:flex-row relative w-full">
-          <section className='w-full md:w-1/2 '>
-          {
-            characterTitle.map((service, key)=> {
-              return (
-                
-                <div key={service.title} className="h-[150lvh]">
+        {/* {
+          why && why.map((service, key)=> {
+            return ( */}
+              <div className="md:flex flex-col md:flex-row relative w-full h- ">
+                <section className='w-full md:w-1/2 '>
                   <div className="sticky top-nav bg-paper z-10 ">
                     <div className="text-2xl md:text-4xl font-extrabold uppercase"> 
                       {service.title}
                     </div>
                   </div>
-                </div>
+                    
+                </section>
 
-                
-              )
-            })
-          }
-          </section>
-
-          <div className="absolute top-[10%] left-0 md:relative md:top-auto w-full break-keep">
-          {
-            characterDesc.map((list, i)=> {
-              len++
-              return (
-                <div key={list.name} className="mb-[10svh] w-full relative">
-                  <animated.div style={motion(0)} >
-                    <div className="text-lg md:text-4xl leading-[1.4]">
-                      <RisingText text={list.name}/>
-                    </div>
-                  </animated.div>
-                  
-                  <animated.div style={motion(1)} >
-                    <RisingText text={list.desc} />
-                  </animated.div>
+                <div className="absolute top-[10%] left-0 md:relative md:top-auto w-full break-keep">
+                {
+                  service.list.map((list, i)=> {
+                    len++
+                    return (
+                      <div key={i} className="mb-[10svh] w-full relative">
+                        <animated.div 
+                          // style={motion(0)} 
+                        >
+                          <div className="text-lg md:text-4xl leading-[1.4]">
+                            {/* <RisingText text={list.name}/> */}
+                            {list.subject}
+                          </div>
+                        </animated.div>
+                        
+                        <animated.div 
+                          // style={motion(1)} 
+                          className={`mt-10`}
+                        >
+                          {/* <RisingText text={list.desc} /> */}
+                          {list.desc}
+                        </animated.div>
+                      </div>
+                    )
+                  })
+                }
                 </div>
-              )
-            })
-          }
-          </div>
-              
-        </div>
+                    
+              </div>
+            {/* )
+          })
+        } */}
+        
       </div>
 
       

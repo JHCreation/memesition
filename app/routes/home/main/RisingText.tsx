@@ -250,7 +250,7 @@ export function RisingText ({ text, startDelay, delay, once, className, textClas
  
 
 
-  const [boxSprings, api] = useSprings(7, riging_text_springs)
+  const [boxSprings, api] = useSprings(12, riging_text_springs)
 
   const [ isClient, setIsClient ]= useState(false)
   useEffect(()=> {
